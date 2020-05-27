@@ -56,6 +56,46 @@ public class Main {
         vector2 = traspasar(vector2, vector);//llamo a la funcion para pasarle los valores
 
 
+        System.out.println("Introduce 1 para ordenar de forma ascendente.");
+        System.out.println("Introduce 2 para ordenar de forma descendente.");
+        System.out.println(":");
+        int numero = lector.nextInt();
 
+        while (numero != 2 && numero != 1) {//Compruebo que este dentro de los valores
+            System.out.println("Introduce 1 para ordenar de forma ascendente.");
+            System.out.println("Introduce 2 para ordenar de forma descendente.");
+            System.out.println(":");
+            numero = lector.nextInt();
+
+        }
+        if (numero == 1) {
+            vector2 = ascendente(vector2);//llamo a la funcion que ordena
+        } else if (numero == 2) {
+            vector2 = descendente(vector2);//llamo a la funcion que ordena
+        }
+        for (int i = 0; i < contador; i++) {
+            Circuls circ = new Circuls(vector2[i]);//creo los objetos añadiendole el valor obtenido al principio
+            miLista.add(i, circ);//los añado a la lista
+
+        }
+
+        for (int i = 0; i < miLista.size(); i++) {//imprimir los valores del radio
+            System.out.println("Radios: ");
+            System.out.printf("%.2f", miLista.get(i).getRadio());
+            System.out.print(" | ");
+
+        }
+        for (int i = 0; i < miLista.size(); i++) {//imprimir los valroes del perimetro
+            System.out.println();
+            System.out.print("Perimetros: ");
+            System.out.printf("%.2f", miLista.get(i).perimetro());
+            System.out.print(" | ");
+        }
+        for (int i = 0; i < miLista.size(); i++) {//imprimir los valores del area
+            System.out.println();
+            System.out.print("Areas: ");
+            System.out.printf("%.2f", miLista.get(i).area());
+            System.out.print(" | ");
+        }
     }
 }
